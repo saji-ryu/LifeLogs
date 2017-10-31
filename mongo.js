@@ -5,7 +5,7 @@ const settings = require('./settings.js');
 
 const url = 'mongodb://' + settings.dbhost + '/' + settings.db;
 
-// Use connect method to connect to the Server
+//mongoとの接続
 MongoClient.connect(url, function(err, mongodb) {
   assert.equal(null, err);
   console.log("Connected correctly to db");

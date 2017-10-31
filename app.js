@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 
 const index = require('./routes/index');
 const show = require('./routes/show');
-const post = require('./routes/show');
+const post  = require('./routes/show');
 
 const app = express();
 
@@ -22,7 +22,6 @@ app.use(express.static(__dirname + '/public')); //静的なファイルはpublic
 app.use('/', index);
 app.use('/show',show);
 app.use('/post',post);
-
 
 
 // catch 404 and forward to error handler
@@ -46,58 +45,3 @@ app.use(function(err, req, res, next) {
 app.listen(3000);
 
 module.exports = app;
-
-
-//
-//
-//
-//
-//
-// //---------以前のコード-------------------
-// //自分でmiddlewareを作る場合
-// app.use(function(req, res, next) {
-//   console.log('my custom middleware!');
-//   next(); //middlewareを重ねる仕組み忘れない
-// });
-//
-//
-// app.get('/', function(req, res) {
-//   res.render('index',{title: 'タイトル'});//.ejsは省略できる　オブジジェクトを渡すこともできるよ
-// });
-//
-// app.param('id',function (req,res,next,id) {
-//   let peoples = ['ryusei','suzuki','sato'];
-//   req.params.name = peoples[id];
-//   next();
-// })
-//
-//
-//
-// app.get('/users/:name?', function(req, res) { //プレースホルダー :以降をnameとして使える
-//   res.send('hello'+ req.params.name);
-// });
-//
-//
-// app.get('/data/',function (req,res) {
-//   console.log(req.query.day); // for logging
-//   res.send('get data');
-// })
-//
-// app.get('/items/:id([0-9]+)?', function(req, res) { //正規表現で制限も可能 ?つけるとそもそもあるかどうかわかる
-//   if (req.params.id) { //存在しているか確かめる
-//     res.send('number ' + req.params.id);
-//   } else {
-//     res.send('no such a item');
-//   }
-// });
-//
-// app.get('/hello/:id',function (req,res) {
-//   res.send('hello!'+req.params.name);
-// })
-//
-// app.get('/hello.txt', function(req, res) { //ファイルの表示
-//   res.sendfile(__dirname + '/public/hello.txt'); //__dirnameで今のディレクトリが取れる
-// });
-//
-// app.listen(3000);
-// console.log('server starting...');
