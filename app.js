@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const index = require('./routes/index');
+const index = require('./routes/show');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(cookieParser());
 app.use(express.static(__dirname + '/public')); //静的なファイルはpublic内の一致する名前のものを配信
 
 app.use('/', index);
+app.use('/show',show);
 //app.use('/',);
 
 
