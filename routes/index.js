@@ -9,8 +9,8 @@ const COLNAME = 'rawdata';
 router.get('/', function(req, res) {
   console.log(collection);
   res.render('index', {
-    title: 'LifeLog'
-  }); //.ejsは省略できる　オブジジェクトを渡すこともできるよ
+    title: 'LifeLog'//#{title}として使う
+  });
 });
 
 router.post('/', function(req, res) {
