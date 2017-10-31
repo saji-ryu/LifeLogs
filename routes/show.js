@@ -7,7 +7,7 @@ const collection = require('../mongo');
 const COLNAME = 'rawdata';
 
 router.get('/', function(req, res) {
-  res.render('index', {
+  res.render('show', {
     title: 'LifeLog'//#{title}として使う
   });
 });

@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const index = require('./routes/index');
-const index = require('./routes/show');
+const show = require('./routes/show');
+const post = require('./routes/show');
 
 const app = express();
 
@@ -20,7 +21,7 @@ app.use(express.static(__dirname + '/public')); //静的なファイルはpublic
 
 app.use('/', index);
 app.use('/show',show);
-//app.use('/',);
+app.use('/post',post);
 
 
 
