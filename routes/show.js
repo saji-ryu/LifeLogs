@@ -8,7 +8,7 @@ const COLNAME = 'rawdata';
 
 router.get('/show/', function(req, res) {
   res.render('show', {
-    title: 'LifeLog'//#{title}として使う
+    title: 'LifeLogs'//#{title}として使う
   });
 });
 
