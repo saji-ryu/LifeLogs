@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const index = require('./routes/index');
 const show = require('./routes/show');
 const post  = require('./routes/show');
+const get  = require('./routes/get');
 
 const app = express();
 

@@ -6,13 +6,13 @@ const ObjectID = require('mongodb').ObjectID;
 const collection = require('../mongo');
 const COLNAME = 'rawdata';
 
-router.get('/show/', function(req, res) {
+router.get('/', function(req, res) {
   res.render('show', {
     title: 'LifeLogs'//#{title}として使う
   });
 });
 
-router.get('/show/', function(req, res) {
+router.get('/all', function(req, res) {
   res.render('show', {
     title: 'LifeLog'//#{title}として使う
   });

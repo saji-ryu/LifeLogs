@@ -7,7 +7,7 @@ const url = 'mongodb://' + settings.dbhost + '/' + settings.db;
 
 //mongoとの接続
 MongoClient.connect(url, function(err, mongodb) {
-  assert.equal(null, err);
+  //assert.equal(null, err);
   console.log("Connected correctly to db");
   db = mongodb;
 });
