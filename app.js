@@ -21,7 +21,7 @@ app.use(express.static(__dirname + '/public')); //静的なファイルはpublic
 
 app.use('/', index);
 app.use('/show',show);
-app.use('/get'get);
+app.use('/get',get);
 app.use('/post',post);
 
 
