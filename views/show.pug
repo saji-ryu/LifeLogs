@@ -2,4 +2,6 @@ include include/base.pug
 include include/head.pug
 
 body
-  h1 #{msg}
+  - for (var i = 0; i < msg.length; i++) {
+       li #{JSON.stringify(msg[i])}
+  - }

@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
   }else{
     collection(COLNAME).insertOne(req.query).then(function(r) {
       res.render('post', {
-        msg: r
+        msg: '受け取りました'
       });
     })
 
