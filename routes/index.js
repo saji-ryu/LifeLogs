@@ -15,7 +15,6 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
   console.log(req.body);
-  //res.send(req.body);
   collection(COLNAME).insertOne(req.body).then(function(r) {
     res.send(req.body);
   });
