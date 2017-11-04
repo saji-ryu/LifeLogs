@@ -7,18 +7,20 @@ const collection = require('../mongo');
 const COLNAME = 'rawdata';
 
 router.get('/', function(req, res) {
-  collection(COLNAME).find().toArray(function(err, docs) {
-    console.log(docs);
+  collection(COLNAME).find({},{"_id" : 0}).toArray(function(err, docs) {
     res.render('show', {
       msg: docs
     });
-  })
+  });
 
 });
 
-router.get('/all', function(req, res) {
-  res.render('show', {
-    msg: 'LifeLog'
+router.get('/:word', function(req, res) {
+  collection(COLNAME).find({
+  }).toArray(function(err, docs) {
+    res.render('show', {
+      msg: docs
+    });
   });
 });
 

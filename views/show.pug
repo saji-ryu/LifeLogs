@@ -4,4 +4,5 @@ include include/head.pug
 body
   - for (var i = 0; i < msg.length; i++) {
        li #{JSON.stringify(msg[i])}
+        input.buttons(type='button',value='削除')
   - }
