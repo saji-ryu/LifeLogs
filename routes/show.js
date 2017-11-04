@@ -8,13 +8,13 @@ const COLNAME = 'rawdata';
 
 router.get('/', function(req, res) {
   res.render('show', {
-    title: 'LifeLogs'//#{title}として使う
+    msg: 'LifeLogs'//#{title}として使う
   });
 });
 
 router.get('/all', function(req, res) {
   res.render('show', {
-    title: 'LifeLog'//#{title}として使う
+    msg: 'LifeLog'//#{title}として使う
   });
 });
 

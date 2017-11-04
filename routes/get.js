@@ -14,12 +14,22 @@ router.get('/', function(req, res) {
 });
 
 router.get('/:key_type', function(req, res) {
-      res.header("Content-Type", "application/json; charset=utf-8");
-      collection(COLNAME).find({
-        type: req.params.key_type
-      }).toArray(function(err, docs) {
-        res.send(docs);
-      });
+  res.header("Content-Type", "application/json; charset=utf-8");
+  collection(COLNAME).find({
+    type: req.params.key_type
+  }).toArray(function(err, docs) {
+    res.send(docs);
+  });
 });
 
-      module.exports = router;
+router.get('/latest', function(req, res) {
+  res.header("Content-Type", "application/json; charset=utf-8");
+  collection(COLNAME).findOne().toArray(function(err, docs) {
+    if (!err) {
+      console.log('error');
+    }
+    res.send(docs);
+  })
+});
+
+module.exports = router;

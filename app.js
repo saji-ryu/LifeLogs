@@ -5,8 +5,10 @@ const cookieParser = require('cookie-parser');
 
 const index = require('./routes/index');
 const show = require('./routes/show');
-const post  = require('./routes/show');
+const post  = require('./routes/post');
 const get  = require('./routes/get');
+
+
 
 const app = express();
 
@@ -21,9 +23,9 @@ app.use(cookieParser());
 app.use(express.static(__dirname + '/public')); //静的なファイルはpublic内の一致する名前のものを配信
 
 app.use('/', index);
+app.use('/post',post);
 app.use('/show',show);
 app.use('/get',get);
-app.use('/post',post);
 
 
 // catch 404 and forward to error handler
