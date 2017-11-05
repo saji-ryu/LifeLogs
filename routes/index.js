@@ -15,7 +15,9 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
   console.log(req.body);
-  collection(COLNAME).insertOne(req.body).then(function(r) {
+  let data = req.body;
+  data.time = Date.now();
+  collection(COLNAME).insertOne(data).then(function(r) {
     res.send(req.body);
   });
 });

@@ -1,11 +1,17 @@
 include include/base.pug
 include include/head.pug
+-let id = msg[0]._id;
+-delete msg[0]._id;
+-let time = msg[0].time;
+-delete msg[0].time;
 -let content = JSON.stringify(msg[0]);
 
 body
-  form
-    input(type='text',value=content)
+  form(method='post',action='/show/update/'+id)
+    input(type='text',value=content,name='con')
+    input.disable(type='text',value=time,name='time')
+    input(type='submit',value='変更')
   
   
   p
-    a(href='/show') 一覧
+    a(href='/show') データ一覧

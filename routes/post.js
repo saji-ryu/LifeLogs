@@ -8,12 +8,16 @@ const COLNAME = 'rawdata';
 
 router.get('/', function(req, res) {
   console.log(Object.keys(req.query).length);
+  //console.log(req.query);
   if (Object.keys(req.query).length == 0) {
     res.render('post', {
       msg: 'パラメーターが空です'
     });
   }else{
-    collection(COLNAME).insertOne(req.query).then(function(r) {
+    let data = req.query;
+    data.time = Date.now();
+    //console.log(data);
+    collection(COLNAME).insertOne(data).then(function(r) {
       res.render('post', {
         msg: '受け取りました'
       });

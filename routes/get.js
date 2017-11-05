@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
 router.get('/latest', function(req, res) {
   res.header("Content-Type", "application/json; charset=utf-8");
   res.header("Content-Type", "application/json; charset=utf-8");
-  collection(COLNAME).find().sort({_id:-1}).limit(1).toArray(function(err, docs) {
+  collection(COLNAME).find().sort({time:-1}).limit(1).toArray(function(err, docs) {
     res.send(docs);
   })
 });
@@ -25,7 +25,7 @@ router.get('/latest/:key_type', function(req, res) {
   res.header("Content-Type", "application/json; charset=utf-8");
   collection(COLNAME).find({
     type: req.params.key_type
-  }).sort({_id:-1}).limit(1).toArray(function(err, docs) {
+  }).sort({time:-1}).limit(1).toArray(function(err, docs) {
     res.send(docs);
   });
 });
