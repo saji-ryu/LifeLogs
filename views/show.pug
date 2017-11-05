@@ -3,6 +3,11 @@ include include/head.pug
 
 body
   - for (var i = 0; i < msg.length; i++) {
+    - let id = msg[i]._id;
+    - delete msg[i]._id
        li #{JSON.stringify(msg[i])}
-        input.buttons(type='button',value='削除')
+        a(href='/show/edit/'+id) edit
+        a(href='/show/delete/'+id) delete 
   - }
+  p
+    a(href='/') home

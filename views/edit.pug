@@ -1,0 +1,11 @@
+include include/base.pug
+include include/head.pug
+-let content = JSON.stringify(msg[0]);
+
+body
+  form
+    input(type='text',value=content)
+  
+  
+  p
+    a(href='/show') 一覧
