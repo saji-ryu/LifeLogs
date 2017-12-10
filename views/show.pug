@@ -6,6 +6,7 @@ body
     - let id = msg[i]._id;
     - delete msg[i]._id;
     - delete msg[i].time;
+    - delete msg[i].istaken;
        li #{JSON.stringify(msg[i])}
         | 
         a(href='/show/edit/'+id) edit
