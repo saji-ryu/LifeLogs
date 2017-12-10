@@ -13,15 +13,20 @@ router.get('/', function(req, res) {
     $and: [
       req.query,
       {istaken : false}
-    ]}
-  ).toArray(function(err, docs) {
+    ]
+  }).toArray(function(err, docs) {
     if (Object.keys(docs).length != 0) {
-      console.log(Object.keys(docs).istaken);
       res.send(docs);
     }else {
       res.send('no match data');
     }
-  });
+  }).then(collection(COLNAME).update({
+    $and: [
+      req.query,
+      {istaken : false}
+    ]
+  },{istaken : true});
+  );
 });
 
 
