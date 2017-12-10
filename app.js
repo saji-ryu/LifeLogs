@@ -7,6 +7,7 @@ const index = require('./routes/index');
 const show = require('./routes/show');
 const post  = require('./routes/post');
 const get  = require('./routes/get');
+const take  = require('./routes/take');
 
 
 
@@ -26,6 +27,7 @@ app.use('/', index);
 app.use('/post',post);
 app.use('/show',show);
 app.use('/get',get);
+app.use('/take',take);
 
 
 // catch 404 and forward to error handler
