@@ -9,16 +9,19 @@ const COLNAME = 'rawdata';
 router.get('/', function(req, res) {
   let id;
   res.header("Content-Type", "application/json; charset=utf-8");
-  collection(COLNAME).find(req.query).toArray(function(err, docs) {
+  collection(COLNAME).find({
+    $and: [
+      req.query,
+      {istaken : 'false'}
+    ]}
+  ).toArray(function(err, docs) {
     id = docs._id
     if (Object.keys(docs).length != 0) {
+      docs.istaken = true;
       res.send(docs);
     }else {
       res.send('no match data');
     }
-  });
-  collection(COLNAME).deleteOne({
-    '_id': id
   });
 });
 

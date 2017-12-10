@@ -16,6 +16,7 @@ router.get('/', function(req, res) {
   }else{
     let data = req.query;
     data.time = Date.now();
+    data.istaken = false;
     //console.log(data);
     collection(COLNAME).insertOne(data).then(function(r) {
       res.render('post', {

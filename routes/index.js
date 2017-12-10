@@ -17,6 +17,7 @@ router.post('/', function(req, res) {
   console.log(req.body);
   let data = req.body;
   data.time = Date.now();
+  data.istaken = false;
   collection(COLNAME).insertOne(data).then(function(r) {
     res.send(req.body);
   });
