@@ -9,8 +9,11 @@ const COLNAME = 'rawdata';
 router.get('/', function(req, res) {
   res.header("Content-Type", "application/json; charset=utf-8");
   collection(COLNAME).find(req.query).toArray(function(err, docs) {
-    console.log(Object.keys(docs).length);
-    res.send(docs);
+    if (Object.keys(docs).length != 0) {
+      res.send(docs);
+    }else {
+      res.send('no match data');
+    }
   })
 });
 
