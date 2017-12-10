@@ -15,8 +15,8 @@ router.get('/', function(req, res) {
       {istaken : false}
     ]}
   ).toArray(function(err, docs) {
-    docs.istaken = true;
     if (Object.keys(docs).length != 0) {
+      console.log(docs.istaken);
       res.send(docs);
     }else {
       res.send('no match data');
