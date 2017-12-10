@@ -7,9 +7,9 @@ const collection = require('../mongo');
 const COLNAME = 'rawdata';
 
 router.get('/', function(req, res) {
-  console.log(req.query);
   res.header("Content-Type", "application/json; charset=utf-8");
   collection(COLNAME).find(req.query).toArray(function(err, docs) {
+    console.log(docs.length);
     res.send(docs);
   })
 });
