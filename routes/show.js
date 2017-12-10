@@ -7,7 +7,7 @@ const collection = require('../mongo');
 const COLNAME = 'rawdata';
 
 router.get('/', function(req, res) {
-  collection(COLNAME).find().sort({time:-1})..limit(100).toArray(function(err, docs) {
+  collection(COLNAME).find().sort({time:-1}).limit(100).toArray(function(err, docs) {
     res.render('show', {
       msg: docs
     });
