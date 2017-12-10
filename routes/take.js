@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
   collection(COLNAME).find({
     $and: [
       req.query,
-      {istaken : 'false'}
+      {istaken : false}
     ]}
   ).toArray(function(err, docs) {
     id = docs._id
