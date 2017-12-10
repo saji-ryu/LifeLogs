@@ -25,7 +25,10 @@ router.get('/', function(req, res) {
       req.query,
       {istaken : false}
     ]
-  },{istaken : true});
+  },{
+    $set:
+     {istaken : true}
+  })
   );
 });
 
