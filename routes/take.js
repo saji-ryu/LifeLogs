@@ -20,7 +20,8 @@ router.get('/', function(req, res) {
     }else {
       res.send('no match data');
     }
-  }).then(collection(COLNAME).update({
+  })
+  collection(COLNAME).update({
     $and: [
       req.query,
       {istaken : false}
@@ -29,7 +30,6 @@ router.get('/', function(req, res) {
     $set:
      {istaken : true}
   })
-  );
 });
 
 
