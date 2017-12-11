@@ -15,13 +15,13 @@ router.get('/', function(req, res) {
 
 });
 
-router.get('/:word', function(req, res) {
-  collection(COLNAME).find().toArray(function(err, docs) {
-    res.render('show', {
-      msg: docs
-    });
-  });
-});
+// router.get('/:word', function(req, res) {
+//   collection(COLNAME).find().toArray(function(err, docs) {
+//     res.render('show', {
+//       msg: docs
+//     });
+//   });
+// });
 
 router.get('/edit/:dataId', function(req, res) {
   let id = ObjectID(req.params.dataId)
