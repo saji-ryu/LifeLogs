@@ -7,28 +7,27 @@ const collection = require('../mongo');
 const COLNAME = 'rawdata';
 
 router.get('/', function(req, res) {
-  let id;
+  let updateid = null;
   res.header("Content-Type", "application/json; charset=utf-8");
   collection(COLNAME).find({
     $and: [
       req.query,
       {istaken : false}
     ]
-  }).toArray(function(err, docs) {
+  }).sort({time:-1}).limit(1).toArray(function(err, docs) {
+    updateid = ObjectID(docs[0]._id);
     if (Object.keys(docs).length != 0) {
+      console.log(updateid);
+      collection(COLNAME).update({
+        _id : updateid
+      },{
+        $set:
+         {istaken : true}
+      })
       res.send(docs);
     }else {
       res.send('no match data');
     }
-  })
-  collection(COLNAME).update({
-    $and: [
-      req.query,
-      {istaken : false}
-    ]
-  },{
-    $set:
-     {istaken : true}
   })
 });
 

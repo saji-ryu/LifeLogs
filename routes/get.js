@@ -8,37 +8,43 @@ const COLNAME = 'rawdata';
 
 router.get('/', function(req, res) {
   res.header("Content-Type", "application/json; charset=utf-8");
-  collection(COLNAME).find().toArray(function(err, docs) {
+  collection(COLNAME).find(req.query).limit(100).toArray(function(err, docs) {
     res.send(docs);
   })
 });
 
 router.get('/latest', function(req, res) {
   res.header("Content-Type", "application/json; charset=utf-8");
-  res.header("Content-Type", "application/json; charset=utf-8");
   collection(COLNAME).find().sort({time:-1}).limit(1).toArray(function(err, docs) {
     res.send(docs);
   })
 });
 
-router.get('/latest/:key_type', function(req, res) {
+router.get('/latest/', function(req, res) {
   res.header("Content-Type", "application/json; charset=utf-8");
-  collection(COLNAME).find({
-    type: req.params.key_type
-  }).sort({time:-1}).limit(1).toArray(function(err, docs) {
+  collection(COLNAME).find(req.query).sort({time:-1}).limit(1).toArray(function(err, docs) {
     res.send(docs);
   });
 });
 
+// router.get('/latest/:key_type', function(req, res) {
+//   res.header("Content-Type", "application/json; charset=utf-8");
+//   collection(COLNAME).find({
+//     type: req.params.key_type
+//   }).sort({time:-1}).limit(1).toArray(function(err, docs) {
+//     res.send(docs);
+//   });
+// });
 
-router.get('/:key_type', function(req, res) {
-  res.header("Content-Type", "application/json; charset=utf-8");
-  collection(COLNAME).find({
-    type: req.params.key_type
-  }).toArray(function(err, docs) {
-    res.send(docs);
-  });
-});
+
+// router.get('/:key_type', function(req, res) {
+//   res.header("Content-Type", "application/json; charset=utf-8");
+//   collection(COLNAME).find({
+//     type: req.params.key_type
+//   }).toArray(function(err, docs) {
+//     res.send(docs);
+//   });
+// });
 
 
 
