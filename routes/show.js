@@ -40,7 +40,7 @@ router.post('/update/:dataId', function(req, res) {
     console.log('update!')
   });
   collection(COLNAME).insertOne(updateData).then(function(r) {
-    res.redirect('/show');
+    res.redirect('back');
   })
 
 });
@@ -52,7 +52,7 @@ router.get('/delete/:dataId', function(req, res) {
   }).then(function(r) {
     // res.render('delete', {
     // });
-    res.redirect('/show');
+    res.redirect('back');
   });
 });
 
