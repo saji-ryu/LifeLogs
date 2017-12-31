@@ -1,7 +1,11 @@
 h1{
-  
+
 }
 
 .invisible{
   display:none;
+}
+
+.content{
+  width:300px;
 }

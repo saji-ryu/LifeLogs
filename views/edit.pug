@@ -8,7 +8,7 @@ include include/head.pug
 
 body
   form(method='post',action='/show/update/'+id)
-    input(type='text',value=content,name='con')
+    input.content(type='text',value=content,name='con')
     input.invisible(type='text',value=time,name='time')
     input(type='submit',value='変更')
   
