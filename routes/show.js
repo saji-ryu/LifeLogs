@@ -40,7 +40,7 @@ router.post('/update/:dataId', function(req, res) {
     console.log('update!')
   });
   collection(COLNAME).insertOne(updateData).then(function(r) {
-    res.redirect('back');
+    res.redirect('/show');
   })
 
 });
