@@ -8,7 +8,7 @@ body
     - let date = new Date(msg[i].time)
     - delete msg[i].time;
     - delete msg[i].istaken;
-       li #{date.toLocaleString()} #{JSON.stringify(msg[i])}
+       li #{date.toLocaleString('en-US')} #{JSON.stringify(msg[i])}
         | 
         a(href='/show/edit/'+id) edit
         | 
