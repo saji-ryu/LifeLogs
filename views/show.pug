@@ -5,9 +5,10 @@ body
   - for (var i = 0; i < msg.length; i++) {
     - let id = msg[i]._id;
     - delete msg[i]._id;
+    - let date = new Date(msg[i].time)
     - delete msg[i].time;
     - delete msg[i].istaken;
-       li #{JSON.stringify(msg[i])}
+       li #{date.toLocaleString()} #{JSON.stringify(msg[i])}
         | 
         a(href='/show/edit/'+id) edit
         | 
