@@ -12,7 +12,6 @@ router.get('/', function(req, res) {
       msg: docs
     });
   });
-
 });
 
 router.get('/edit/:dataId', function(req, res) {
@@ -36,11 +35,11 @@ router.post('/update/:dataId', function(req, res) {
 
   collection(COLNAME).deleteOne({
     '_id': id
-  }).then(function(r) {
-    console.log('update!')
-  });
-  collection(COLNAME).insertOne(updateData).then(function(r) {
-    res.redirect('/show');
+  },function(err,result) {
+    collection(COLNAME).insertOne(updateData).then(function(r) {
+      console.log('update!');
+      res.redirect('/show');
+    })
   })
 
 });
