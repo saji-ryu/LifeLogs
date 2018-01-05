@@ -8,7 +8,6 @@ const COLNAME = 'rawdata';
 
 router.get('/', function(req, res) {
   console.log(Object.keys(req.query).length);
-  //console.log(req.query);
   if (Object.keys(req.query).length == 0) {
     res.render('post', {
       msg: 'パラメーターが空です'
@@ -23,7 +22,6 @@ router.get('/', function(req, res) {
         msg: '受け取りました'
       });
     })
-
   }
 });
 
