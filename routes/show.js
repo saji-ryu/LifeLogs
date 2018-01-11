@@ -33,14 +33,12 @@ router.post('/update/:dataId', function(req, res) {
   updateData.time = Number(_time);
   //console.log(updateData);
 
-  collection(COLNAME).deleteOne({
-    '_id': id
-  },function(err,result) {
-    collection(COLNAME).insertOne(updateData).then(function(r) {
+  collection(COLNAME).deleteOne({'_id': id},function(err,result) {
+    collection(COLNAME).insertOne(updateData,function(err,result) {
       console.log('update!');
       res.redirect('/show');
-    })
-  })
+    });
+  });
 
 });
 
