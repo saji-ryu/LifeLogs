@@ -18,7 +18,7 @@ router.post('/', function(req, res) {
   let data = req.body;
   data.time = Date.now();
   data.istaken = false;
-  collection(COLNAME).insertOne(data).then(function(r) {
+  collection(COLNAME).insertOne(data,function(r) {
     res.send(req.body);
   });
 });

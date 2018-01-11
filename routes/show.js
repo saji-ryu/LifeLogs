@@ -44,11 +44,7 @@ router.post('/update/:dataId', function(req, res) {
 
 router.get('/delete/:dataId', function(req, res) {
   let id = ObjectID(req.params.dataId)
-  collection(COLNAME).deleteOne({
-    '_id': id
-  }).then(function(r) {
-    // res.render('delete', {
-    // });
+  collection(COLNAME).deleteOne({'_id': id},function(r) {
     res.redirect('back');
   });
 });

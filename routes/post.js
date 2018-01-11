@@ -16,12 +16,11 @@ router.get('/', function(req, res) {
     let data = req.query;
     data.time = Date.now();
     data.istaken = false;
-    //console.log(data);
-    collection(COLNAME).insertOne(data).then(function(r) {
+    collection(COLNAME).insertOne(data,function(r) {
       res.render('post', {
         msg: '受け取りました'
       });
-    })
+    });
   }
 });
 
