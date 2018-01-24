@@ -29,6 +29,7 @@ app.use('/post',post);
 app.use('/show',show);
 app.use('/get',get);
 app.use('/take',take);
+app.use('/stream',stream);
 
 
 // catch 404 and forward to error handler
@@ -50,12 +51,15 @@ app.use(function(err, req, res, next) {
 });
 
 
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
+// io.on('connection', function(socket){
+//   console.log('a user connected');
+// });
+
 http.listen(3000, function(){
   console.log('listening on *:3000');
 });
+
+app.set('io', io);
 
 //app.listen(3000);
 
