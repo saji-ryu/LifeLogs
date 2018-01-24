@@ -8,12 +8,15 @@ const COLNAME = 'rawdata';
 
 
 router.get('/', function(req, res) {
-  req.app.io.on('connection',function(socket){
-    console.log('a user connected');
-    let msg = 'test'
-    req.app.io.emit('test',msg);
-  });
   res.render('stream');
+  // req.app.io.sockets.on('connection',function(socket){
+  //   console.log('a user connected');
+    // socket.on('want',function functionName(data) {
+    //   req.app.io.emit('test',msg);
+    // });
+
+  // });
 });
+
 
 module.exports = router;

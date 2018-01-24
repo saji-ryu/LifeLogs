@@ -52,9 +52,15 @@ app.use(function(err, req, res, next) {
 });
 
 
-// io.on('connection', function(socket){
-//   console.log('a user connected');
-// });
+io.sockets.on('connection',function(socket){
+  console.log('a user connected');
+  socket.on('want', function() {
+    socket.emit('test','msg');
+  });
+  socket.on('disconnect', function() {
+    socket.disconnect();
+  });
+});
 
 http.listen(3000, function(){
   console.log('listening on *:3000');
