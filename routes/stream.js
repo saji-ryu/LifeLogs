@@ -9,14 +9,11 @@ const COLNAME = 'rawdata';
 
 router.get('/', function(req, res) {
   req.app.io.on('connection',function(socket){
-    console.log('a user connected');  
+    console.log('a user connected');
+    let msg = 'test'
+    req.app.io.emit('test',msg);
   });
-  res.header("Content-Type", "application/json; charset=utf-8");
-  collection(COLNAME).find(req.query).sort({time:-1}).limit(100).toArray(function(err, docs) {
-    res.send(docs);
-  })
+  res.render('stream');
 });
-
-
 
 module.exports = router;

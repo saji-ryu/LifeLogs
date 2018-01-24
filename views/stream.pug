@@ -2,17 +2,5 @@ include include/base.pug
 include include/head.pug
 
 body
-  - for (var i = 0; i < msg.length; i++) {
-    - let id = msg[i]._id;
-    - delete msg[i]._id;
-    - let date = new Date(msg[i].time)
-    - delete msg[i].time;
-    - delete msg[i].istaken;
-       li #{date.toLocaleString('en-US')} #{JSON.stringify(msg[i])}
-        | 
-        a(href='/show/edit/'+id) edit
-        | 
-        a(href='/show/delete/'+id) delete 
-  - }
   p
     a(href='/') home

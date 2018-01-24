@@ -8,6 +8,7 @@ const show = require('./routes/show');
 const post  = require('./routes/post');
 const get  = require('./routes/get');
 const take  = require('./routes/take');
+const stream  = require('./routes/stream');
 
 const app = express();
 const http = require('http').Server(app);
@@ -59,7 +60,7 @@ http.listen(3000, function(){
   console.log('listening on *:3000');
 });
 
-app.set('io', io);
+app.io = io;
 
 //app.listen(3000);
 
