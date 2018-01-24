@@ -14,9 +14,11 @@ router.get('/', function(req, res) {
       req.query,
       {istaken : false}
     ]
-  }).sort({time:-1}).limit(1).toArray(function(err, docs) {
-    updateid = ObjectID(docs[0]._id);
-    if (Object.keys(docs).length != 0) {
+  }).sort({time:-1}).limit(1).toArray(function(err,docs) {
+    if (docs[0] == undefined) {
+      res.send('no match data');
+    }else {
+      updateid = ObjectID(docs[0]._id);
       console.log(updateid);
       collection(COLNAME).update({
         _id : updateid
@@ -24,11 +26,9 @@ router.get('/', function(req, res) {
         $set:
          {istaken : true}
       })
-      res.send(docs);
-    }else {
-      res.send('no match data');
+      res.send(docs[0]);
     }
-  })
+  });
 });
 
 
