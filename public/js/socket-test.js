@@ -7,8 +7,4 @@ socket.on("test", function(data){
 
 setInterval(function() {
   socket.emit('want','')
-},1000)
-
-// function disconnect() {
-//   socket.emit('dc','')
-// }
+},1000);
