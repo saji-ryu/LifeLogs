@@ -10,7 +10,7 @@ const COLNAME = 'rawdata';
 router.get('/', function(req, res) {
   console.log(collection);
   res.render('index', {
-    title: 'LifeLog'
+    title: 'LifeLogs'
   });
 });
 

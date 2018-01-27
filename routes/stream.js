@@ -8,9 +8,7 @@ const COLNAME = 'rawdata';
 
 
 router.get('/', function(req, res) {
-
   res.render('stream');
-
 });
 
 
