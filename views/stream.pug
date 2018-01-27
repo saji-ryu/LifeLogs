@@ -1,0 +1,12 @@
+include include/base.pug
+include include/head.pug
+
+body
+  h1 Streaming
+  script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+  script(src="/socket.io/socket.io.js")
+  script(src="/js/socket-test.js")
+  p
+    a(href='/') home
+  p
+    div#streamtest

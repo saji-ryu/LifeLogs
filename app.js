@@ -8,10 +8,13 @@ const show = require('./routes/show');
 const post  = require('./routes/post');
 const get  = require('./routes/get');
 const take  = require('./routes/take');
-
-
+const stream  = require('./routes/stream');
 
 const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+
+
 
 app.set('views', __dirname + '/views'); //テンプレート・ファイルが配置されるディレクトリー
 app.set('view engine', 'pug'); //使用するテンプレート・エンジン
@@ -28,6 +31,7 @@ app.use('/post',post);
 app.use('/show',show);
 app.use('/get',get);
 app.use('/take',take);
+app.use('/stream',stream);
 
 
 // catch 404 and forward to error handler
@@ -48,6 +52,27 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3000);
+
+
+
+io.sockets.on('connection',function(socket){
+  console.log('a user connected');
+  socket.on('want', function() {
+    socket.emit('test','test');
+  });
+  socket.on('disconnect', function() {
+    socket.disconnect();
+  });
+});
+
+
+
+http.listen(3000, function(){
+  console.log('listening on *:3000');
+});
+
+app.io = io;
+
+//app.listen(3000);
 
 module.exports = app;
