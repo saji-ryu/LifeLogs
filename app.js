@@ -15,6 +15,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 
+
 app.set('views', __dirname + '/views'); //テンプレート・ファイルが配置されるディレクトリー
 app.set('view engine', 'pug'); //使用するテンプレート・エンジン
 
@@ -52,15 +53,19 @@ app.use(function(err, req, res, next) {
 });
 
 
+
+
 io.sockets.on('connection',function(socket){
   console.log('a user connected');
   socket.on('want', function() {
-    socket.emit('test','msg');
+    socket.emit('test','test');
   });
   socket.on('disconnect', function() {
     socket.disconnect();
   });
 });
+
+
 
 http.listen(3000, function(){
   console.log('listening on *:3000');
