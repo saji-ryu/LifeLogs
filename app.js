@@ -72,7 +72,4 @@ http.listen(3000, function(){
 });
 
 app.io = io;
-
-//app.listen(3000);
-
 module.exports = app;
