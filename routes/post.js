@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
     let data = req.query;
     data.time = Date.now();
     data.istaken = false;
-    req.app.io.emit('test',data);
+    req.app.io.emit('stream',data);
     collection(COLNAME).insertOne(data,function(r) {
       res.render('post', {
         msg: '受け取りました'
