@@ -3,5 +3,5 @@ console.log('ok');
 socket.on("test", function(data){
   delete data.istaken;
   console.log(data);
-  $('#streamtest').prepend('<li>'+JSON.stringify(data)+'</li>');
+  $('<li>'+JSON.stringify(data)+'</li>').prependTo('#streamtest').hide().fadeIn(800);
 });
