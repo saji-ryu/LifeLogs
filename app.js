@@ -57,9 +57,6 @@ app.use(function(err, req, res, next) {
 
 io.sockets.on('connection',function(socket){
   console.log('a user connected');
-  // socket.on('want', function() {
-  //   socket.emit('test','test');
-  // });
   socket.on('disconnect', function() {
     socket.disconnect();
   });

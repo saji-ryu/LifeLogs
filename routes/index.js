@@ -20,7 +20,7 @@ router.post('/', function(req, res) {
   data.time = Date.now();
   data.istaken = false;
   collection(COLNAME).insertOne(data,function(r) {
-    req.app.io.emit('stream',data);
+    req.app.io.emit('streamr',data);
     res.send(req.body);
   });
 });
